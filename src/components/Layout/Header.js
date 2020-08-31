@@ -47,14 +47,14 @@ export const Header = () => {
     return(
         <HeaderPage>
             <HeaderPage.Menu>
-                <i class="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>
             </HeaderPage.Menu>
+            
             <HeaderPage.Title>
                 <img src="/assets/images/icon-header.png" alt="icone github header"/>
                 <span>Github Dashboard</span>
             </HeaderPage.Title>
 
-            
             <HeaderPage.Avatar>
                 <img src="/assets/images/avatar.png" alt="icone avatar user"/>
             </HeaderPage.Avatar>

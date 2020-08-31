@@ -1,11 +1,17 @@
 import React from 'react';
 import { ListRepos } from '../components/repos/ListRepos';
+import { Card, CardBody, CardText, CardTitle } from 'reactstrap';
 
 const Dashboard = () => {
     return (
         <>
-            <h2>Página dashboard</h2>
             <ListRepos/>
+            <Card>
+                <CardBody>
+                    <CardTitle>título</CardTitle>
+                    <CardText>Texto do card</CardText>
+                </CardBody>
+            </Card>
         </>
         
     )

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Header, Content } from './components';
-import Dashboard from './pages/Dashboard';
+import Routes from './routes';
+import { Header } from './components/index';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Content/>
-      <Dashboard/>
+      <Routes/>
     </div>
   );
 }
