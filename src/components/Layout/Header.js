@@ -10,7 +10,11 @@ const HeaderPage = styled.header`
     background-color: #81b9bf;
     height: 50px;
 `;
-
+const MenuButton = styled(BsFillGrid3X3GapFill)`
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+`;
 HeaderPage.Title = styled.div`
     display: flex;
     justify-content: center;
@@ -20,7 +24,6 @@ HeaderPage.Title = styled.div`
         height: 40px;
     }
 `;
-
 HeaderPage.Avatar = styled.div`
     display: flex;
     justify-content: center;
@@ -38,7 +41,7 @@ HeaderPage.Avatar = styled.div`
 export const Header = () => {
     return(
         <HeaderPage>
-            <BsFillGrid3X3GapFill style={{ marginLeft: 10, fontSize: 25, cursor: "pointer" }}/>
+            <MenuButton/>
             <HeaderPage.Title>
                 <img src="/assets/images/icon-header.png" alt="icone github header"/>
                 <h5>Github Dashboard</h5>
