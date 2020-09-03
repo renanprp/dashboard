@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
 
 const HeaderPage = styled.header`
     display: flex;
@@ -9,14 +9,6 @@ const HeaderPage = styled.header`
     align-items: center;
     background-color: #81b9bf;
     height: 50px;
-`;
-
-HeaderPage.Menu = styled.span`
-    margin-left: 10px;
-    font-size: 20px;
-    &:hover{
-        cursor: pointer;
-    }
 `;
 
 HeaderPage.Title = styled.div`
@@ -33,10 +25,10 @@ HeaderPage.Avatar = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 5px;
+    margin-right: 10px;
     img{
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     &:hover{
         cursor: pointer;
@@ -46,15 +38,11 @@ HeaderPage.Avatar = styled.div`
 export const Header = () => {
     return(
         <HeaderPage>
-            <HeaderPage.Menu>
-                <i className="fas fa-bars"></i>
-            </HeaderPage.Menu>
-            
+            <BsFillGrid3X3GapFill style={{ marginLeft: 10, fontSize: 25, cursor: "pointer" }}/>
             <HeaderPage.Title>
                 <img src="/assets/images/icon-header.png" alt="icone github header"/>
-                <span>Github Dashboard</span>
+                <h5>Github Dashboard</h5>
             </HeaderPage.Title>
-
             <HeaderPage.Avatar>
                 <img src="/assets/images/avatar.png" alt="icone avatar user"/>
             </HeaderPage.Avatar>

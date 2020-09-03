@@ -1,17 +1,43 @@
-import React from 'react';
-import { ListRepos } from '../components/repos/ListRepos';
-import { Card, CardBody, CardText, CardTitle } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, CardBody, CardText, CardTitle, Container, Row, Col } from 'reactstrap';
+import { getRepositories } from '../services/dashboard';
+
 
 const Dashboard = () => {
+    const [repositories, setRepos] = useState();
+
+    useEffect(() => {
+        const requestRepos = async () => {
+            const response = await getRepositories();
+            console.log(response.data);
+            setRepos(response.data);
+        }
+        requestRepos();
+    },[])
+
     return (
         <>
-            <ListRepos/>
-            <Card>
-                <CardBody>
-                    <CardTitle>título</CardTitle>
-                    <CardText>Texto do card</CardText>
-                </CardBody>
-            </Card>
+            <Container>
+                <Row>
+                    {
+                        (repositories && repositories.length > 0) ? (
+                            Array.from({length: 4}).map(() => {
+                                return(
+                                    <Col>
+                                        <Card>
+                                            <CardBody>
+                                                <CardTitle>Total de repositórios</CardTitle>
+                                                <CardText>{repositories.length}</CardText>
+                                            </CardBody>
+                                        </Card>
+                                    </Col>
+                                    )
+                                }
+                            )
+                        ) : <h2>Loading...</h2>
+                    }
+                </Row>
+            </Container>
         </>
         
     )
