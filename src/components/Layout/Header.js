@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const HeaderPage = styled.header`
     display: flex;
@@ -10,7 +10,7 @@ const HeaderPage = styled.header`
     background-color: #81b9bf;
     height: 50px;
 `;
-const MenuButton = styled(BsFillGrid3X3GapFill)`
+const MenuButton = styled(GiHamburgerMenu)`
     margin-left: 10px;
     font-size: 20px;
     cursor: pointer;
