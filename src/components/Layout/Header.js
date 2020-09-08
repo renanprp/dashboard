@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { GiHamburgerMenu } from "react-icons/gi";
+import { BsList } from "react-icons/bs";
+import { Popover, ListGroup, ListGroupItem } from 'reactstrap';
 
 const HeaderPage = styled.header`
     display: flex;
@@ -10,7 +11,7 @@ const HeaderPage = styled.header`
     background-color: #81b9bf;
     height: 50px;
 `;
-const MenuButton = styled(GiHamburgerMenu)`
+const MenuButton = styled(BsList)`
     margin-left: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -38,17 +39,44 @@ HeaderPage.Avatar = styled.div`
     }
 `;
 
+HeaderPage.Avatar.Menu = styled.div`
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    z-index: 999;
+    background-color: red;
+    right: 0;
+    animation-delay: 2s;
+`;
+
 export const Header = () => {
-    return(
+    const [popoverOpen, setPopoverOpen] = useState(false);
+
+    const toggle = () => setPopoverOpen(!popoverOpen);
+
+    return(        
         <HeaderPage>
             <MenuButton/>
-            <HeaderPage.Title>
-                <img src="/assets/images/icon-header.png" alt="icone github header"/>
-                <h5>Github Dashboard</h5>
-            </HeaderPage.Title>
-            <HeaderPage.Avatar>
-                <img src="/assets/images/avatar.png" alt="icone avatar user"/>
-            </HeaderPage.Avatar>
+                <HeaderPage.Title>
+                    <img src="/assets/images/icon-header.png" alt="icone github header"/>
+                    <h5>Github Dashboard</h5>
+                </HeaderPage.Title>
+                <HeaderPage.Avatar id="Popover1">
+                    <img src="/assets/images/avatar.png" alt="icone avatar user"/>  
+                </HeaderPage.Avatar>
+                    <Popover placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
+                        <ListGroup>
+                            <ListGroupItem tag="a" href="#" action>
+                                Detalhes
+                            </ListGroupItem>
+                            <ListGroupItem tag="a" href="#" action>
+                                Configurações
+                            </ListGroupItem>
+                            <ListGroupItem tag="a" href="#" action>
+                                Sair
+                            </ListGroupItem>
+                        </ListGroup>
+                    </Popover>
         </HeaderPage>
     ) 
 }
